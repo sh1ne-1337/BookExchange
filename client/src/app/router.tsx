@@ -52,6 +52,23 @@ export const router = createBrowserRouter([
                 children: [
                   { path: '/', element: <Navigate to="/books" replace /> },
                   {
+                    path: '/books',
+                    lazy: () =>
+                      import('@/pages/books-page').then((m) => ({ Component: m.BooksPage })),
+                  },
+                  {
+                    path: '/books/:id',
+                    lazy: () =>
+                      import('@/pages/book-details-page').then((m) => ({
+                        Component: m.BookDetailsPage,
+                      })),
+                  },
+                  {
+                    path: '/me/books',
+                    lazy: () =>
+                      import('@/pages/my-books-page').then((m) => ({ Component: m.MyBooksPage })),
+                  },
+                  {
                     path: '*',
                     lazy: () =>
                       import('@/pages/not-found-page').then((m) => ({ Component: m.NotFoundPage })),
