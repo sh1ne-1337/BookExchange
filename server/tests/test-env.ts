@@ -1,0 +1,16 @@
+export const TEST_ENV = {
+  NODE_ENV: 'test',
+  DB_NAME: 'book_exchange_test',
+  JWT_SECRET: 'test-jwt-secret-that-is-at-least-32-characters',
+  CLIENT_URL: 'http://localhost:5173',
+  S3_BUCKET: 'test-bucket',
+  S3_REGION: 'eu-north-1',
+  S3_ACCESS_KEY_ID: 'test',
+  S3_SECRET_ACCESS_KEY: 'test',
+  S3_KEY_PREFIX: 'test/uploads/',
+  SMTP_HOST: 'localhost',
+  SMTP_PORT: '1025',
+  SMTP_USER: '',
+  SMTP_PASS: '',
+  DEMO_EMAIL: '',
+};
