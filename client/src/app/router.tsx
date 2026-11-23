@@ -2,7 +2,7 @@ import { createBrowserRouter, Navigate } from 'react-router';
 import { AppLayout } from '@/components/layout/app-layout';
 import { AuthLayout } from '@/components/layout/auth-layout';
 import { RouteErrorPage } from '@/pages/route-error-page';
-import { GuestRoute, ProtectedRoute } from '@/routes/guards';
+import { AdminRoute, GuestRoute, ProtectedRoute } from '@/routes/guards';
 
 export const router = createBrowserRouter([
   {
@@ -67,6 +67,23 @@ export const router = createBrowserRouter([
                     path: '/me/books',
                     lazy: () =>
                       import('@/pages/my-books-page').then((m) => ({ Component: m.MyBooksPage })),
+                  },
+                  {
+                    path: '/profile',
+                    lazy: () =>
+                      import('@/pages/profile-page').then((m) => ({ Component: m.ProfilePage })),
+                  },
+                  {
+                    element: <AdminRoute />,
+                    children: [
+                      {
+                        path: '/admin',
+                        lazy: () =>
+                          import('@/pages/admin-users-page').then((m) => ({
+                            Component: m.AdminUsersPage,
+                          })),
+                      },
+                    ],
                   },
                   {
                     path: '*',
